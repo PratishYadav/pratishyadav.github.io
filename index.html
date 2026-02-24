@@ -8,118 +8,182 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
 
 body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(-45deg, #667eea, #764ba2, #6a11cb, #2575fc);
-    background-size: 400% 400%;
-    animation: gradientBG 10s ease infinite;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#0f172a;
+    color:white;
+    overflow:hidden;
+    transition:0.4s;
 }
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.light-mode {
+    background:#f4f4f4;
+    color:#111;
 }
 
 .card {
-    backdrop-filter: blur(15px);
-    background: rgba(255, 255, 255, 0.1);
-    padding: 40px;
-    width: 320px;
-    border-radius: 20px;
-    text-align: center;
-    color: white;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-    animation: fadeIn 1.5s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    position:relative;
+    z-index:10;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,0.08);
+    padding:40px;
+    width:350px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 8px 32px rgba(0,0,0,0.3);
 }
 
 .profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 4px solid white;
-    margin-bottom: 20px;
-    transition: 0.4s;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    border:3px solid white;
+    margin-bottom:20px;
 }
 
-.profile-img:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 25px white;
-}
+h1 { font-size:22px; margin-bottom:8px; }
 
-h1 {
-    font-size: 22px;
-    margin-bottom: 8px;
-}
-
-p {
-    font-size: 14px;
-    margin-bottom: 25px;
-    opacity: 0.9;
+.typing {
+    font-size:14px;
+    height:20px;
+    margin-bottom:20px;
+    color:#38bdf8;
 }
 
 .links a {
-    display: block;
-    margin: 12px 0;
-    padding: 12px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-    background: white;
-    color: #333;
+    display:block;
+    margin:10px 0;
+    padding:12px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:600;
+    background:white;
+    color:#333;
+    transition:0.3s;
 }
 
-.links a:hover {
-    transform: translateY(-3px);
-    background: #ffdd57;
+.links a:hover { transform:translateY(-3px); }
+
+button {
+    margin-top:10px;
+    padding:8px 15px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
 }
 
-.footer {
-    margin-top: 20px;
-    font-size: 12px;
-    opacity: 0.7;
+canvas {
+    position:absolute;
+    top:0;
+    left:0;
 }
 </style>
 </head>
 
 <body>
 
+<canvas id="particles"></canvas>
+
 <div class="card">
-
-    <!-- Upload your image and replace profile.jpg -->
     <img src="Image.jpg" class="profile-img">
-
     <h1>Pratish Yadav</h1>
-    <p>Software Engineer | Physics Enthusiast 🚀</p>
+    <div class="typing" id="typing"></div>
 
     <div class="links">
-        <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
         <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-        <a href="https://wa.me/91XXXXXXXXXX" target="_blank">WhatsApp</a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+        <a href="resume.pdf" download>Download Resume</a>
     </div>
 
-    <div class="footer">
-        © 2026 Pratish Yadav
-    </div>
+    <button onclick="toggleMode()">Toggle Dark/Light</button>
 
+    <br><br>
+
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://pratishyadav.github.io">
+
+    <br><br>
+
+    <!-- Visitor Counter -->
+    <img src="https://hitwebcounter.com/counter/counter.php?page=12345678&style=0006&nbdigits=5&type=page&initCount=0">
+
+    <br><br>
+
+    <!-- GitHub Stats -->
+    <img src="https://github-readme-stats.vercel.app/api?username=yourusername&show_icons=true&theme=radical" width="100%">
 </div>
+
+<script>
+/* Typing Animation */
+const text = "I build intelligent systems using AI & Software 🚀";
+let i = 0;
+function typingEffect() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typingEffect, 40);
+    }
+}
+typingEffect();
+
+/* Dark Light Toggle */
+function toggleMode() {
+    document.body.classList.toggle("light-mode");
+}
+
+/* Particle Background */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particlesArray = [];
+
+class Particle {
+    constructor() {
+        this.x = Math.random()*canvas.width;
+        this.y = Math.random()*canvas.height;
+        this.size = Math.random()*2;
+        this.speedX = Math.random()*1-0.5;
+        this.speedY = Math.random()*1-0.5;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if(this.x<0||this.x>canvas.width) this.speedX*=-1;
+        if(this.y<0||this.y>canvas.height) this.speedY*=-1;
+    }
+    draw() {
+        ctx.fillStyle = "#38bdf8";
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+        ctx.fill();
+    }
+}
+
+function init() {
+    for(let i=0;i<100;i++){
+        particlesArray.push(new Particle());
+    }
+}
+
+function animate() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particlesArray.forEach(p=>{
+        p.update();
+        p.draw();
+    });
+    requestAnimationFrame(animate);
+}
+
+init();
+animate();
+</script>
 
 </body>
 </html>

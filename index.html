@@ -44,6 +44,7 @@ body {
     border-radius:50%;
     border:3px solid white;
     margin-bottom:20px;
+    margin-top: 25px;
 }
 
 h1 { font-size:22px; margin-bottom:8px; }
@@ -92,12 +93,14 @@ canvas {
 <div class="card">
     <img src="Image.jpg" class="profile-img">
     <h1>Pratish Yadav</h1>
+    <h3>Engineering Student</h3>
     <div class="typing" id="typing"></div>
 
     <div class="links">
         <a href="https://github.com/yourusername" target="_blank">GitHub</a>
         <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
-        <a href="resume.pdf" download>Download Resume</a>
+        <a href="https://twitter.com/yourusername" target="_blank">Instagram</a>
+        <a href="https://yourblog.com" target="_blank">Facebook</a>
     </div>
 
     <button onclick="toggleMode()">Toggle Dark/Light</button>
@@ -106,29 +109,11 @@ canvas {
 
     <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://pratishyadav.github.io">
 
-    <br><br>
+    <br>
 
-    <!-- Visitor Counter -->
-    <img src="https://hitwebcounter.com/counter/counter.php?page=12345678&style=0006&nbdigits=5&type=page&initCount=0">
-
-    <br><br>
-
-    <!-- GitHub Stats -->
-    <img src="https://github-readme-stats.vercel.app/api?username=yourusername&show_icons=true&theme=radical" width="100%">
 </div>
 
 <script>
-/* Typing Animation */
-const text = "I build intelligent systems using AI & Software 🚀";
-let i = 0;
-function typingEffect() {
-    if (i < text.length) {
-        document.getElementById("typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typingEffect, 40);
-    }
-}
-typingEffect();
 
 /* Dark Light Toggle */
 function toggleMode() {

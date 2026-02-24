@@ -1,66 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Pratish Yadav</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            text-align: center;
-            color: white;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pratish Yadav</title>
 
-        .container {
-            margin-top: 80px;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-        img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid white;
-            cursor: pointer;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-        h1 {
-            margin-top: 20px;
-        }
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #667eea, #764ba2, #6a11cb, #2575fc);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+}
 
-        .links a {
-            display: block;
-            margin: 15px auto;
-            width: 200px;
-            padding: 12px;
-            background: white;
-            color: #333;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
-        .links a:hover {
-            background: #ffdd57;
-        }
-    </style>
+.card {
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    width: 320px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid white;
+    margin-bottom: 20px;
+    transition: 0.4s;
+}
+
+.profile-img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px white;
+}
+
+h1 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+p {
+    font-size: 14px;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+.links a {
+    display: block;
+    margin: 12px 0;
+    padding: 12px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    background: white;
+    color: #333;
+}
+
+.links a:hover {
+    transform: translateY(-3px);
+    background: #ffdd57;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 12px;
+    opacity: 0.7;
+}
+</style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="card">
 
-    <!-- Replace image link with your own -->
-    <img src="Image.jpg" onclick="window.location.href='https://instagram.com/'">
+    <!-- Upload your image and replace profile.jpg -->
+    <img src="Image.jpg" class="profile-img">
 
     <h1>Pratish Yadav</h1>
-    <p>Software Engineer | Physics Enthusiast</p>
+    <p>Software Engineer | Physics Enthusiast 🚀</p>
 
     <div class="links">
-        <a href="https://instagram.com/">Instagram</a>
-        <a href="https://linkedin.com/">LinkedIn</a>
-        <a href="https://github.com/">GitHub</a>
+        <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+        <a href="https://wa.me/91XXXXXXXXXX" target="_blank">WhatsApp</a>
+    </div>
+
+    <div class="footer">
+        © 2026 Pratish Yadav
     </div>
 
 </div>

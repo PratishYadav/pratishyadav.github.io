@@ -1,0 +1,48 @@
+.links a {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin:12px 0;
+    padding:12px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    color:white;
+    transition:0.3s ease;
+}
+
+.links a i {
+    font-size:18px;
+}
+
+/* LinkedIn */
+.linkedin {
+    background:#0A66C2;
+}
+
+.linkedin:hover {
+    background:#004182;
+    transform:translateY(-3px);
+}
+
+/* GitHub */
+.github {
+    background:#181717;
+}
+
+.github:hover {
+    background:#333;
+    transform:translateY(-3px);
+}
+
+/* Instagram */
+.instagram {
+    background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+}
+
+.instagram:hover {
+    opacity:0.9;
+    transform:translateY(-3px);
+}
